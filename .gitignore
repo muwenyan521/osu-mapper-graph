@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.basedpyright/
+*.egg-info/
+data/*.sqlite3
+data/*.csv
+data/*.json
+data/
+tools/attributes-pp/target/

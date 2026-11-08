@@ -1,0 +1,57 @@
+[project]
+name = "osu-mapper-graph"
+version = "0.1.0"
+description = "Discover the ranked osu!standard mapper collaboration graph."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "anyio>=4.8",
+    "httpx2[http2,brotli,zstd]>=0.1",
+    "pydantic>=2.10",
+    "rosu-pp-py==4.0.1",
+    "rich>=13.9",
+    "typer>=0.15",
+]
+
+[dependency-groups]
+dev = [
+    "basedpyright>=1.31",
+    "pytest>=8.3",
+    "ruff>=0.9",
+]
+
+[project.scripts]
+osu-mapper-graph = "osu_mapper_graph.cli:app"
+
+[tool.uv]
+package = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = ["-ra", "--strict-config", "--strict-markers"]
+filterwarnings = ["error"]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "ANN", "B008", "COM812", "CPY001", "D", "E501", "EM", "FBT001", "FBT002",
+    "FBT003", "FIX002", "ISC001", "PLR0913", "PLR0917", "PLR2004", "RUF001", "TC", "TD002", "TD003", "TRY",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["S101", "ARG", "D", "PLR2004", "SLF001"]
+
+[tool.basedpyright]
+typeCheckingMode = "all"
+pythonVersion = "3.13"
+include = ["src", "tests"]
+reportAny = "none"
+reportCallInDefaultInitializer = "none"
+reportImplicitStringConcatenation = "none"
+reportUnusedCallResult = "none"
+reportUnnecessaryTypeIgnoreComment = "error"
