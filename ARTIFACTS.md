@@ -4,7 +4,7 @@
 
 ## 最终数据
 
-Release `data-2026-11-08` 包含：
+Release [`data-2026-11-08-final`](https://github.com/muwenyan521/osu-mapper-graph/releases/tag/data-2026-11-08-final) 包含：
 
 - `mapper_catalog_full_pp.csv`：最终平面表，551,295 行；PP JSON 只保留 Stable `stable_best`。
 - `mapper_graph.sqlite3`：完整可继续查询的 SQLite 图数据库，4,864 条成功 PP 记录。
@@ -23,3 +23,12 @@ Release `data-2026-11-08` 包含：
 ## 校验
 
 Release 描述中列出每个资产的 SHA-256。下载后可用 `sha256sum` 校验；SQLite 可用 `sqlite3 mapper_graph.sqlite3 '.tables'` 打开，CSV 可直接用 DuckDB、Polars 或表格工具读取。
+
+当前资产 SHA-256：
+
+```text
+63772b121b8d26ac7b3d3a3da7bcce1bbd91470d85a9e5b5e3a065ee668e3e82  mapper_catalog_full_pp.csv
+eabdd617d91da86eeaeec93edaff2ad2f2e9f7f9c69a51f43eda5f7b4d1936c5  mapper_graph.sqlite3
+d78945909b0f6bc72f4b7d725c9c56cac66c038b3d87f413022d0baad10918ea  stable_pp_difference_report.csv
+7bf9e18cbe9955b29c305c36be8145b19c2b7d33f3a7d8338720bcb3dfb023bb  osu-mapper-graph-additional-data-20261108.tar.zst
+```
